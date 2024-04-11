@@ -35,21 +35,26 @@
 		            </tr>
 		        </thead>
 		        <tbody>
+		        	@if($products->isEmpty())
+					    <tr class="bg-white border-b dark:bg-white-800 dark:border-black-700">
+					        <td colspan="7" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black text-center">no data</td>
+					    </tr>
+					@endif
 		        	@foreach($products as $product)
 		            <tr class="bg-white border-b dark:bg-white-800 dark:border-black-700">
 		                <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
 		                    {{$product->name}}
 		                </th>
-		                <td class="px-6 py-4">
+		                <td class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
 		                    {{$product->qty}}
 		                </td>
-		                <td class="px-6 py-4">
+		                <td class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
 		                    {{$product->price}}
 		                </td>
-		                <td class="px-6 py-4">
+		                <td class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
 		                    {{$product->description}}
 		                </td>
-		                <td class="px-6 py-4">
+		                <td class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
 		                	<a href="{{route('product.edit', ['product' => $product])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
 		                </td>
 		                <td class="px-6 py-4">
